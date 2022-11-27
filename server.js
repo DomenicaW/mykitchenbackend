@@ -4,6 +4,8 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 const methodOverride = require('method-override');
 
+const routes = require('./routes');
+
 const Recipe = require('./models/Recipe.js')
 
 //importing db
@@ -17,6 +19,10 @@ app.use(express.static('public'));
 app.use(methodOverride('_method'));
 
 require('./config/db.connection.js')
+
+
+//Routes folder
+app.use('/recipes', routes.recipes);
 
 
 //import recipe from models folder:
