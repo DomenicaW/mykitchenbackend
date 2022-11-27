@@ -6,6 +6,8 @@ const methodOverride = require('method-override');
 
 const Recipe = require('./models/Recipe.js')
 
+//importing db
+require('./config/db.connection.js')
 
 //*-*-*-MIDDLEWARE-*-*-*
 //making sure form submits info to server:
@@ -26,4 +28,9 @@ app.get('/', (req, res) =>{
 })
 app.listen(PORT, () =>{
   console.log('server is running 🥳')
+})
+
+Recipe.find((err, recipes) =>{
+  console.log(recipes)
+
 })

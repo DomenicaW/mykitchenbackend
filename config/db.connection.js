@@ -8,4 +8,6 @@ mongoose.connect(mongoURI, () =>{
     console.log('db is connected')
 })
 
-db.on('connected', () => {console.log('mongo is connected: ', mongoURI)})
+db.on('connected', () => {console.log('mongo is connected 🤠: ', mongoURI)});
+
+db.on('error', () => console.log('mongo has an error 🥺'));
