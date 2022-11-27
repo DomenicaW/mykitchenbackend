@@ -6,6 +6,7 @@ const PORT = process.env.PORT || 3001;
 //making sure form submits info to server:
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
+app.use(express.static('public'));
 
 
 //import recipe from models folder:
