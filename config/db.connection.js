@@ -1,13 +1,14 @@
 const mongoose = require('mongoose');
+const connectionStr = "mongodb://localhost:27017/recipes" || process.env.MONGODB_URI
+// const mongoURI = 'mongodb://localhost:27017/' + 'recipes';
 
-const mongoURI = 'mongodb://localhost:27017/' + 'recipes';
+// const db = mongoose.connection
+mongoose.connect(connectionStr)
 
-const db = mongoose.connection
-
-mongoose.connect(mongoURI, () =>{
+mongoose.connect(connectionStr, () =>{
     console.log('db is connected')
 })
 
-db.on('connected', () => {console.log('mongo is connected 🤠: ', mongoURI)});
+mongoose.connection.on('connected', () => {console.log('mongo is connected 🤠: ', connectionStr)});
 
-db.on('error', () => console.log('mongo has an error 🥺'));
+mongoose.connection.on('error', () => console.log('mongo has an error 🥺'));

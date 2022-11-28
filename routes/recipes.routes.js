@@ -11,6 +11,6 @@ router.post('/', ctrls.recipes.create);
 
 router.put('/:id', ctrls.recipes.update);
 
-router.delete('./:id', ctrls.recipes.destroy);
+router.delete('/:id', ctrls.recipes.destroy);
 
 module.exports = router;
